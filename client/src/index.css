@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Space Grotesk", sans-serif;
+  --font-body: "Inter", sans-serif;
+
+  --color-ink: #0B2E33;       /* deep teal-black, primary bg */
+  --color-slate: #123B42;     /* panel bg */
+  --color-teal: #2AA9A0;      /* primary accent */
+  --color-gold: #D9A441;      /* study/highlight accent */
+  --color-paper: #F6F2E9;     /* light bubble / text on dark */
+  --color-mist: #7FA7A8;      /* muted text */
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  background: var(--color-ink);
+  font-family: var(--font-body);
+  color: var(--color-paper);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+/* Signature element: notebook-line texture on assistant bubbles */
+.notebook-lines {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 27px,
+    rgba(217, 164, 65, 0.15) 28px
+  );
+}
+
+@keyframes typing-dot {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+  30% { transform: translateY(-4px); opacity: 1; }
+}
+.typing-dot {
+  animation: typing-dot 1.2s ease-in-out infinite;
+}
