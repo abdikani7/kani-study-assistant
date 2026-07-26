@@ -56,7 +56,7 @@ function EmptyState({ onPick }) {
         Caawiyahaaga waxbarasho ee af-Soomaaliga ah. I weydii su'aal ku saabsan CS, math,
         ama mowduuc kasta oo aad barato.
       </p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 w-full max-w-lg">
+      {/* <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 w-full max-w-lg">
         {SUGGESTED_TOPICS.map((topic) => (
           <button
             key={topic}
@@ -66,7 +66,7 @@ function EmptyState({ onPick }) {
             {topic}
           </button>
         ))}
-      </div>
+      </div> */}
     </div>
   )
 }
@@ -135,7 +135,7 @@ function App() {
 
         <div className="mt-auto pt-6 border-t border-[var(--color-border)] flex items-center gap-2 text-xs text-[var(--color-mist)]">
           <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-teal)]" />
-          Powered by Groq — bilaash oo dhaqso ah
+          Powered by Abdikani — bilaash oo dhaqso ah
         </div>
       </aside>
 
