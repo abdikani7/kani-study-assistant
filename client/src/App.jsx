@@ -1,4 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 
 const SUGGESTED_TOPICS = [
   'Sharax algorithm-ka Binary Search',
@@ -7,8 +9,6 @@ const SUGGESTED_TOPICS = [
   'Sida loo xisaabiyo Big-O notation',
   'Sharax normalization database-ka',
 ]
-
-const API_BASE = import.meta.env.VITE_API_URL || ''
 
 function KaniMark({ size = 32 }) {
   return (
@@ -58,7 +58,7 @@ function EmptyState({ onPick }) {
         Caawiyahaaga waxbarasho ee af-Soomaaliga ah. I weydii su'aal ku saabsan CS, math,
         ama mowduuc kasta oo aad barato.
       </p>
-      {/* <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 w-full max-w-lg">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 w-full max-w-lg">
         {SUGGESTED_TOPICS.map((topic) => (
           <button
             key={topic}
@@ -68,10 +68,12 @@ function EmptyState({ onPick }) {
             {topic}
           </button>
         ))}
-      </div> */}
+      </div>
     </div>
   )
 }
+
+const API_BASE = import.meta.env.VITE_API_URL || ''
 
 function App() {
   const [messages, setMessages] = useState([])
@@ -169,10 +171,14 @@ function App() {
                     className={`max-w-[75%] md:max-w-[65%] rounded-2xl px-4 py-3 text-sm leading-relaxed card-shadow ${
                       m.role === 'user'
                         ? 'bg-gradient-to-br from-[var(--color-teal)] to-[var(--color-teal-dim)] text-[var(--color-ink)] font-medium'
-                        : 'notebook-lines bg-[var(--color-slate-2)] text-[var(--color-paper)] border border-white/[0.05]'
+                        : 'notebook-lines bg-[var(--color-slate-2)] text-[var(--color-paper)] border border-white/[0.05] markdown-body'
                     }`}
                   >
-                    {m.content}
+                    {m.role === 'user' ? (
+                      m.content
+                    ) : (
+                      <ReactMarkdown remarkPlugins={[remarkGfm]}>{m.content}</ReactMarkdown>
+                    )}
                   </div>
                 </div>
               ))}
