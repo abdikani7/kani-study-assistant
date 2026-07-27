@@ -7,7 +7,7 @@ app.use(cors())
 app.use(express.json())
 
 const GROQ_API_KEY = process.env.GROQ_API_KEY
-const MODEL = 'llama-3.1-8b-instant' // free, fast model on Groq
+const MODEL = 'openai/gpt-oss-120b' // OpenAI's open-weight model on Groq (replaces deprecated llama-3.1-8b-instant)
 
 const SYSTEM_PROMPT = `Waxaad tahay "Kani Study", caawiye waxbarasho iyo cilmi-baaris oo ku hadla af-Soomaali, oo loogu talagalay ardayda jaamacadda (gaar ahaan Computer Science iyo mowduucyada la xiriira).
 
